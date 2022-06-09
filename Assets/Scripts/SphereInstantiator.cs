@@ -28,11 +28,13 @@ public class SphereInstantiator : MonoBehaviour
     }
 
     GameObject NextSphere(){
-        switch(Random.Range(0,2)){
+        switch(Random.Range(0,3)){
             case 0:
                 return redSphere;
             case 1:
                 return blueSphere;
+            case 2:
+                return greenSphere;
             default:
                 return greenSphere;    
         }
