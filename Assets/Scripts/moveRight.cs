@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class moveRight : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Vector3 _deltaPos = new Vector3();
+    Vector3 moveSpeed;
     void Start()
     {
         
@@ -13,10 +14,9 @@ public class moveRight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = new Vector3(
-            gameObject.transform.position.x + (float)0.01, 
-            gameObject.transform.position.y, 
-            gameObject.transform.position.z
-        );
+        moveSpeed = GameManager.instancia.globalSpeed;
+        _deltaPos.x = (float)1.0 * moveSpeed.x;
+        _deltaPos *= Time.deltaTime;
+        gameObject.transform.Translate(_deltaPos);
     }
 }
