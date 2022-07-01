@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     int _currentHP = 3;
     public static GameManager instancia;
 
-    public Vector3 globalSpeed = new Vector3(10,10);
+    public Vector3 globalSpeed;
     public const float POWERUP_TIMER = 4;
 
     public enum Tipo{
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
             Destroy(this);
             return;
         }
+        globalSpeed = new Vector3(10,10);
         instancia  = this;
     }
 
@@ -50,12 +51,13 @@ public class GameManager : MonoBehaviour
         hpText.text = _currentHP.ToString();
     }
 
-    public IEnumerator SpeedUp(){
-        Debug.Log("Speed on");
-        globalSpeed = new Vector3(20,20); 
-        yield return new WaitForSeconds(4);
+    public void SpeedUp(){
+        globalSpeed = new Vector3(20,20);
+        Invoke(nameof(ResetSpeed), 4);
+    }
+
+    private void ResetSpeed(){
         globalSpeed = new Vector3(10,10);
-        Debug.Log("Speed off");
     }
 
     public Tipo randomTipoEnemigo(){

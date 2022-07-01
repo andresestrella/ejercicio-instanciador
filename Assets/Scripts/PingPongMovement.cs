@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PingPongMovement : MonoBehaviour
 {
-    const float MAX_X = 8f;
+    public float MAX_X = 8f;
     Vector3 currentPosition = new Vector3();
-    const float SPEED_X = 10f;
+    public float SPEED_X = 10f;
     void Start()
     {
         

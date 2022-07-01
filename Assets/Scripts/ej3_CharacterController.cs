@@ -8,7 +8,7 @@ public class ej3_CharacterController : MonoBehaviour
     //public GameManager.TipoPowerUp tipo = GameManager.Tipo.Azul;
 
     Vector3 _deltaPos = new Vector3();
-    Vector3 moveSpeed;
+    private Vector3 moveSpeed = new Vector3();
     const float MIN_LIMIT_Y = -4.30f, MAX_LIMIT_Y = 4.30f;
     const float MIN_LIMIT_X = -8.18f, MAX_LIMIT_X = 8.18f;
 
