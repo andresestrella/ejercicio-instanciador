@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float walkingForce = 8f;
     [SerializeField]
     private float runningForce = 9f;
-    private float movementX, yVelocity;
+    private float movementX, yVelocity, movementY;
     private bool isGrounded;
     private Rigidbody2D myBody;
     private SpriteRenderer mySprite;
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        myBody = GetComponent<Rigidbody2D>();
+        //myBody = GetComponent<Rigidbody2D>();
         mySprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         flip = false;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        yVelocity = myBody.velocity.y;
+        //yVelocity = myBody.velocity.y;
         PlayerMoveKeyboard();
         WalkAnimation();
         Run();
@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     void PlayerMoveKeyboard()
     {
         movementX = Input.GetAxisRaw("Horizontal");
-        transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
+        movementY = Input.GetAxisRaw("Vertical");
+        transform.position += new Vector3(movementX, movementY, 0f) * Time.deltaTime * moveForce;
     }
 
     void WalkAnimation()
@@ -68,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
                 transform.Rotate(0f, 180f, 0);
                 flip = true;
             }
+            anim.SetBool(WALK_ANIMATION, true);
+        } else if (movementY != 0){
             anim.SetBool(WALK_ANIMATION, true);
         }
         else

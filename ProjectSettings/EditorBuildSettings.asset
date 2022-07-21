@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/C0.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Cave.unity
+    guid: 988d02251011a5648a4646fc34a40dee
+  - enabled: 1
+    path: Assets/Scenes/Ej5-mapa.unity
+    guid: c1d3d18dcaf153b4ab743645437c0689
   m_configObjects: {}
